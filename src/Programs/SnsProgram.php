@@ -4,12 +4,12 @@ namespace Attestto\SolanaPhpSdk\Programs;
 
 
 use Attestto\SolanaPhpSdk\Exceptions\InputValidationException;
+use Attestto\SolanaPhpSdk\Interfaces\RpcClient;
 use Attestto\SolanaPhpSdk\Program;
 use Attestto\SolanaPhpSdk\Programs\SNS\Bindings;
 use Attestto\SolanaPhpSdk\Programs\SNS\Utils;
 use Attestto\SolanaPhpSdk\Programs\SNS\Instructions\Instructions;
 use Attestto\SolanaPhpSdk\PublicKey;
-use Attestto\SolanaPhpSdk\SolanaRpcClient;
 
 
 
@@ -28,7 +28,7 @@ class SnsProgram extends Program
     /**
      * @throws InputValidationException
      */
-    public function __construct(SolanaRpcClient $client, $config = null)
+    public function __construct(RpcClient $client, $config = null)
     {
         parent::__construct($client);
         if ($config) {

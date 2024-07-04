@@ -2,6 +2,7 @@
 
 namespace Attestto\SolanaPhpSdk;
 
+use Exception;
 use GuzzleHttp\Psr7\Message;
 
 use Psr\Http\Client\ClientExceptionInterface;
@@ -14,15 +15,15 @@ use GuzzleHttp\Psr7\HttpFactory;
 use Attestto\SolanaPhpSdk\Exceptions\GenericException;
 use Attestto\SolanaPhpSdk\Exceptions\InvalidIdResponseException;
 use Attestto\SolanaPhpSdk\Exceptions\MethodNotFoundException;
+use Attestto\SolanaPhpSdk\Interfaces\RpcClient;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
-use Random\RandomException;
 
 
 /**
  * @see https://docs.solana.com/developing/clients/jsonrpc-api
  */
-class SolanaRpcClient
+class SolanaRpcClient implements RpcClient
 {
     public const LOCAL_ENDPOINT = 'http://localhost:8899';
     public const DEVNET_ENDPOINT = 'https://api.devnet.solana.com';
@@ -60,7 +61,7 @@ class SolanaRpcClient
      * @param RequestFactoryInterface|null $requestFactory
      * @param StreamFactoryInterface|Message|null $streamFactory
      * @param UriFactoryInterface|null $uriFactory
-     * @throws RandomException
+     * @throws Exception
      */
     public function __construct(
         string $endpoint,

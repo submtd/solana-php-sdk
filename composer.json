@@ -32,7 +32,7 @@
         }
     ],
     "require": {
-        "php": "~8.2",
+        "php": "~8.1",
         "ext-sodium": "*",
         "guzzlehttp/guzzle": "^7.3",
         "paragonie/sodium_compat": "^1.17",
@@ -41,7 +41,7 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.4",
-        "orchestra/testbench": "^9.0",
+        "orchestra/testbench": "^8.0",
         "phpunit/php-code-coverage": "^10.0",
         "phpunit/phpunit": "^10.0",
         "squizlabs/php_codesniffer": "^3.5",

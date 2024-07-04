@@ -2,15 +2,17 @@
 
 namespace Attestto\SolanaPhpSdk;
 
+use Attestto\SolanaPhpSdk\Interfaces\RpcClient;
+
 class Program
 {
     /**
-     * @var SolanaRpcClient
+     * @var RpcClient
      */
-    protected SolanaRpcClient $client;
+    protected RpcClient $client;
     protected mixed $config;
 
-    public function __construct(SolanaRpcClient $client)
+    public function __construct(RpcClient $client)
     {
         $this->client = $client;
         $this->config = require __DIR__ . '/../config/solana-sdk.php';
